@@ -19,6 +19,41 @@ const ChinaMap = () => {
           const echartsDom = document.getElementById('echartsMap')!;
           echartsRef.current = echarts.init(echartsDom);
         }
+        echartsRef.current.setOption({
+          animation: true,
+          animationDuration: 1500,
+          stateAnimation: {
+            duration: 300,
+            easing: 'cubicOut',
+          },
+          geo: {
+            map: 'chinaSvg',
+            show: true,
+            aspectScale: 1,
+            zoom: 3,
+            roam: false,
+            top: 200,
+
+            label: {
+              show: false,
+            },
+            itemStyle: {
+              areaColor: '#00000020',
+              borderColor: '#b9eaffa0', // 线
+              borderWidth: 2,
+            },
+            emphasis: {
+              label: {
+                show: false,
+              },
+              itemStyle: {
+                areaColor: '#C4F890',
+                opacity: 0.4,
+              },
+            },
+            regions: [],
+          },
+        });
       });
   }, []);
 
